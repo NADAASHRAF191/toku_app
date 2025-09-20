@@ -1,34 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:toku/components/list_item.dart';
 import 'package:toku/models/item_model.dart';
+import '../components/phrase.dart';
 
-class NumbersPage extends StatelessWidget {
-  const NumbersPage({Key? key}) : super(key: key);
+class PhrasesPage extends StatelessWidget {
+  const PhrasesPage({Key? key}) : super(key: key);
 
-  final List<ItemModel> numbers = const [
+  final List<ItemModel> phrasesList = const [
     ItemModel(
-      sound: 'sounds/numbers/number_one_sound.mp3',
-      jpName: 'ichi',
-      enName: 'one',
-      image: 'assets/images/numbers/number_one.png',
+      sound: 'sounds/phrases/are_you_coming.wav',
+      jpName: 'chich',
+      enName: 'Are you coming',
     ),
     ItemModel(
       sound: 'sounds/numbers/number_two_sound.mp3',
       jpName: 'Ni',
       enName: 'two',
-      image: 'assets/images/numbers/number_two.png',
     ),
     ItemModel(
       sound: 'sounds/numbers/number_three_sound.mp3',
       jpName: 'San',
       enName: 'three',
-      image: 'assets/images/numbers/number_three.png',
     ),
     ItemModel(
       sound: 'sounds/numbers/number_four_sound.mp3',
       jpName: 'Shi',
       enName: 'four',
-      image: 'assets/images/numbers/number_four.png',
     ),
     ItemModel(
       sound: 'sounds/numbers/number_five_sound.mp3',
@@ -72,32 +68,32 @@ class NumbersPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Numbers',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 20,
+        title: const Text('Phrases'
+        ,style: TextStyle(
+          color: Colors.white,
+          fontSize: 20,
           ),
+        
         ),
         backgroundColor: const Color(0xff46322B),
         iconTheme: const IconThemeData(color: Colors.white ,
-       size: 22,
-       
-        ),
+        size: 22,),
+
       ),
       body: ListView.separated(
-        itemCount: numbers.length,
+        itemCount: phrasesList.length,
         itemBuilder: (context, index) {
-          return ListItem(
-            color: const Color(0xffEF9235),
-            item: numbers[index],
+          return PhrasesItem(
+           color: const Color(0xff50ADC7),
+            item: phrasesList[index],
           );
         },
-        separatorBuilder: (context, index) => const Divider(
+                separatorBuilder: (context, index) => const Divider(
           color: Colors.black26,
-          thickness: 1, 
-          height: 1, 
+          thickness: 1,
+          height: 1,
         ),
+
       ),
     );
   }

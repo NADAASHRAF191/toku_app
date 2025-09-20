@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:toku/components/list_item.dart';
 import 'package:toku/models/item_model.dart';
 
-class NumbersPage extends StatelessWidget {
-  const NumbersPage({Key? key}) : super(key: key);
+class FamilyMembersPage extends StatelessWidget {
+  const FamilyMembersPage({Key? key}) : super(key: key);
 
   final List<ItemModel> numbers = const [
     ItemModel(
-      sound: 'sounds/numbers/number_one_sound.mp3',
-      jpName: 'ichi',
-      enName: 'one',
-      image: 'assets/images/numbers/number_one.png',
+      sound: 'sounds/family_members/father.wav',
+      jpName: 'chich',
+      enName: 'father',
+      image: 'assets/images/family_members/family_father.png',
     ),
     ItemModel(
       sound: 'sounds/numbers/number_two_sound.mp3',
@@ -72,32 +72,33 @@ class NumbersPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Numbers',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 20,
+        title: const Text('Family Members'
+        ,style: TextStyle(
+          color: Colors.white,
+          fontSize: 20,
           ),
+
+                
         ),
         backgroundColor: const Color(0xff46322B),
-        iconTheme: const IconThemeData(color: Colors.white ,
-       size: 22,
-       
-        ),
+          iconTheme: const IconThemeData(color: Colors.white ,
+       size: 22,),
+
       ),
       body: ListView.separated(
         itemCount: numbers.length,
         itemBuilder: (context, index) {
           return ListItem(
-            color: const Color(0xffEF9235),
+            color: const Color(0xff558B37),
             item: numbers[index],
           );
         },
-        separatorBuilder: (context, index) => const Divider(
+         separatorBuilder: (context, index) => const Divider(
           color: Colors.black26,
-          thickness: 1, 
-          height: 1, 
+          thickness: 1,
+          height: 1,
         ),
+
       ),
     );
   }

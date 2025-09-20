@@ -1,67 +1,69 @@
 import 'package:flutter/material.dart';
 import 'package:toku/components/category_item.dart';
+import 'package:toku/screens/colors_page.dart';
+import 'package:toku/screens/family.dart';
 import 'package:toku/screens/numbers_page.dart';
+import 'package:toku/screens/phrases_page.dart';
 
-/// Main home page of the app
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // Background color of the page
       backgroundColor: const Color(0xffFEF6DB),
-
-      // Top AppBar
       appBar: AppBar(
-        backgroundColor: const Color(0xFF46322B),
-        title: const Text(
-          "Toku App",
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
+        backgroundColor: const Color(0xff46322B),
+        leading: const Icon(Icons.menu_book,
+        color: Colors.white,
+        size: 25,
+        ),
+        title: const Text('Toku',
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 20,
+          fontWeight: FontWeight.bold
           ),
         ),
       ),
-
-      // Page content (main categories)
+      
       body: Column(
         children: [
           Category(
-            "Numbers",
-            Colors.orange,
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (BuildContext context) {
-                    return NumbersPage();
-                  },
-                ),
-              );
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return const NumbersPage();
+              }));
             },
+            text: 'Numbers',
+            color: const Color(0xffEF9235),
           ),
           Category(
-            "Family Members",
-            Colors.green,
             onTap: () {
-              print('Family Members category tapped');
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return const FamilyMembersPage();
+              }));
             },
+            text: 'FamilyMembers',
+            color: const Color(0xff558B37),
           ),
           Category(
-            "Colors",
-            Colors.purple,
             onTap: () {
-              print('Colors category tapped');
+               Navigator.push(context, MaterialPageRoute(builder: (context) {
+               return ColorsPage();
+               }));
             },
+            text: 'Colors',
+            color: const Color(0xff79359F),
           ),
           Category(
-            "Phrases",
-            Colors.blue,
             onTap: () {
-              print('Phrases category tapped');
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return const PhrasesPage();
+              }));
             },
+            text: 'Phrases',
+            color: const Color(0xff50ADC7),
           ),
         ],
       ),
